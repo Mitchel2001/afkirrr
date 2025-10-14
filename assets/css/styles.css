@@ -1,12 +1,12 @@
 :root {
-    --bg: #0f1014;
-    --bg-alt: #151720;
-    --primary: #f59f0b;
-    --accent: #ef4444;
-    --text: #f5f5f5;
-    --muted: #9ca3af;
-    --card: rgba(255, 255, 255, 0.05);
-    --border: rgba(255, 255, 255, 0.08);
+    --bg: #050608;
+    --bg-alt: #0b0d11;
+    --primary: #9ef23d;
+    --accent: #22d3ee;
+    --text: #f8fafc;
+    --muted: #9aa4b7;
+    --card: rgba(158, 242, 61, 0.06);
+    --border: rgba(158, 242, 61, 0.14);
     --max-width: 1120px;
     --transition: 220ms ease;
 }
@@ -18,7 +18,9 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: var(--bg);
+    background: radial-gradient(circle at top, rgba(158, 242, 61, 0.08), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.08), transparent 50%),
+        var(--bg);
     color: var(--text);
     line-height: 1.6;
     scroll-behavior: smooth;
@@ -110,17 +112,21 @@ a {
 }
 
 .primary-nav .cta {
-    border: 1px solid var(--border);
-    padding: 0.65rem 1rem;
+    border: 1px solid transparent;
+    padding: 0.65rem 1.1rem;
     border-radius: 999px;
     font-weight: 600;
-    transition: background var(--transition), color var(--transition);
+    background: linear-gradient(135deg, rgba(158, 242, 61, 0.15), rgba(34, 211, 238, 0.15));
+    color: var(--primary);
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
 }
 
 .primary-nav .cta:hover,
 .primary-nav .cta:focus-visible {
-    background: var(--primary);
-    color: #111827;
+    color: #04130d;
+    background: linear-gradient(135deg, var(--primary), #4ade80);
+    box-shadow: 0 12px 32px rgba(78, 222, 128, 0.35);
+    transform: translateY(-1px);
 }
 
 .nav-toggle {
@@ -165,10 +171,22 @@ a {
 }
 
 .hero {
+    position: relative;
     padding: 7rem 0 5rem;
-    background: radial-gradient(circle at top left, rgba(245, 159, 11, 0.3), transparent 55%),
-        radial-gradient(circle at top right, rgba(239, 68, 68, 0.25), transparent 50%),
-        var(--bg);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(158, 242, 61, 0.12), transparent 60%),
+        radial-gradient(circle at top right, rgba(34, 211, 238, 0.12), transparent 55%);
+    pointer-events: none;
+}
+
+.hero > .container {
+    position: relative;
+    z-index: 1;
 }
 
 .hero .container {
@@ -207,20 +225,20 @@ a {
 }
 
 .btn.primary {
-    background: linear-gradient(135deg, var(--primary), #facc15);
-    color: #111827;
-    box-shadow: 0 10px 30px rgba(245, 159, 11, 0.35);
+    background: linear-gradient(135deg, var(--primary), #4ade80);
+    color: #031107;
+    box-shadow: 0 10px 28px rgba(74, 222, 128, 0.32);
 }
 
 .btn.primary:hover,
 .btn.primary:focus-visible {
     transform: translateY(-2px);
-    box-shadow: 0 16px 36px rgba(245, 159, 11, 0.45);
+    box-shadow: 0 16px 38px rgba(74, 222, 128, 0.45);
 }
 
 .btn.secondary {
-    border: 1px solid var(--border);
-    background: var(--bg-alt);
+    border: 1px solid rgba(158, 242, 61, 0.3);
+    background: rgba(12, 18, 12, 0.8);
     color: var(--text);
 }
 
@@ -231,8 +249,8 @@ a {
 }
 
 .btn.ghost {
-    border: 1px solid transparent;
-    background: transparent;
+    border: 1px solid rgba(158, 242, 61, 0.25);
+    background: rgba(5, 6, 8, 0.4);
     color: var(--text);
 }
 
@@ -262,11 +280,11 @@ a {
 }
 
 .hero-card {
-    background: rgba(17, 24, 39, 0.65);
-    border: 1px solid var(--border);
+    background: rgba(11, 13, 17, 0.82);
+    border: 1px solid rgba(158, 242, 61, 0.2);
     border-radius: 1.25rem;
     overflow: hidden;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
 }
 
 .hero-card img {
@@ -301,7 +319,7 @@ a {
 .stat {
     text-align: center;
     padding: 1.5rem;
-    background: var(--card);
+    background: linear-gradient(160deg, rgba(158, 242, 61, 0.08), rgba(11, 13, 17, 0.9));
     border-radius: 1rem;
     border: 1px solid var(--border);
 }
@@ -329,8 +347,8 @@ a {
 }
 
 .service-card {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: rgba(11, 13, 17, 0.88);
+    border: 1px solid rgba(158, 242, 61, 0.18);
     border-radius: 1.25rem;
     padding: 2rem;
     display: grid;
@@ -342,6 +360,7 @@ a {
 .service-card:focus-within {
     transform: translateY(-6px);
     border-color: var(--primary);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
 }
 
 .service-icon {
@@ -387,8 +406,8 @@ a {
 
 .pricing-card {
     position: relative;
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: rgba(11, 13, 17, 0.86);
+    border: 1px solid rgba(158, 242, 61, 0.2);
     border-radius: 1.5rem;
     padding: 2.5rem 2rem;
     display: grid;
@@ -412,17 +431,18 @@ a {
 }
 
 .pricing-card.featured {
-    border: 1px solid rgba(245, 159, 11, 0.4);
-    background: linear-gradient(160deg, rgba(245, 159, 11, 0.15), rgba(15, 16, 20, 0.9));
+    border: 1px solid rgba(158, 242, 61, 0.6);
+    background: linear-gradient(160deg, rgba(158, 242, 61, 0.18), rgba(11, 13, 17, 0.92));
     transform: translateY(-10px);
+    box-shadow: 0 24px 46px rgba(158, 242, 61, 0.18);
 }
 
 .pricing-card .badge {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    background: var(--primary);
-    color: #111827;
+    background: linear-gradient(135deg, var(--primary), #4ade80);
+    color: #04130d;
     padding: 0.35rem 0.75rem;
     border-radius: 999px;
     font-size: 0.75rem;
@@ -445,18 +465,20 @@ a {
     margin: 0;
     overflow: hidden;
     border-radius: 1rem;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(158, 242, 61, 0.18);
+    background: rgba(5, 6, 8, 0.6);
 }
 
 .gallery img {
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    transition: transform var(--transition);
+    transition: transform var(--transition), filter var(--transition);
 }
 
 .gallery figure:hover img,
 .gallery figure:focus-within img {
     transform: scale(1.05);
+    filter: saturate(1.08);
 }
 
 .reviews {
@@ -472,8 +494,8 @@ a {
 }
 
 .review-card {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: rgba(11, 13, 17, 0.88);
+    border: 1px solid rgba(158, 242, 61, 0.18);
     border-radius: 1.25rem;
     padding: 2rem;
     display: grid;
@@ -491,7 +513,9 @@ a {
 
 .cta-banner {
     padding: 4rem 0;
-    background: linear-gradient(135deg, rgba(245, 159, 11, 0.2), rgba(239, 68, 68, 0.15));
+    background: linear-gradient(135deg, rgba(158, 242, 61, 0.18), rgba(34, 211, 238, 0.18));
+    border-top: 1px solid rgba(158, 242, 61, 0.15);
+    border-bottom: 1px solid rgba(158, 242, 61, 0.15);
 }
 
 .cta-banner .container {
@@ -533,8 +557,8 @@ a {
 
 .opening-hours {
     margin-top: 2rem;
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: rgba(11, 13, 17, 0.85);
+    border: 1px solid rgba(158, 242, 61, 0.18);
     border-radius: 1rem;
     padding: 1.5rem;
 }
@@ -550,6 +574,13 @@ a {
     justify-content: space-between;
 }
 
+.contact-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 .contact-map iframe {
     width: 100%;
     min-height: 360px;
@@ -561,7 +592,7 @@ a {
 .site-footer {
     padding: 2.5rem 0;
     border-top: 1px solid var(--border);
-    background: #0c0d12;
+    background: #040507;
 }
 
 .site-footer .container {
@@ -637,6 +668,11 @@ a {
         width: auto;
         display: block;
         margin-bottom: 0.25rem;
+    }
+
+    .contact-actions {
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .cta-banner .container {
